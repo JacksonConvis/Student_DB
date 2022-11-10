@@ -3,23 +3,23 @@ import java.util.Scanner;
 public class studentData {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
 		Scanner scan = new Scanner(System.in);
 		int choice;
 		String cont = "yes";
-		String nocont = "no";
 		/*
-		- the following arrays list ten students, as well as their favorite food and hometown
-		- the arrays are listed in order with each other based on their index so that
-		- the user's selection will correspond to the accurate item in each array via the "choice" integer variable
-		- Author @JacksonConvis
-		*/
-		String[] studentsArr = { "0/null", "Jack", "Josh", "Brendan", "Brady", "Nate", "Loren", "Kelly", "Emma",
+		 * - the following arrays list ten students, as well as their favorite food and
+		 * hometown
+		 * - the arrays are listed in order with each other based on their index so that
+		 * - the user's selection will correspond to the accurate item in each array via
+		 * the "choice" integer variable
+		 * - Author @JacksonConvis
+		 */
+		String[] studentsArr = { "Jack", "Josh", "Brendan", "Brady", "Nate", "Loren", "Kelly", "Emma",
 				"Andrea", "Michelle" };
-		String[] favArr = { "0/null", "Shawarma", "Tacos", "Ice Cream", "Chili-Dogs", "Hot Pockets", "Pizza", "Wings",
+		String[] favArr = { "Shawarma", "Tacos", "Ice Cream", "Chili-Dogs", "Hot Pockets", "Pizza", "Wings",
 				"Pickles", "Burgers", "Chicken" };
-		String[] hmtwnArr = { "0/null", "Brighton", "Fenton", "Benton", "Howell", "Pinckney", "Lakeland", "Flint",
+		String[] hmtwnArr = { "Brighton", "Fenton", "Benton", "Howell", "Pinckney", "Lakeland", "Flint",
 				"Tecumseh", "Detroit", "Lansing" };
 
 		String yesorno;
@@ -36,15 +36,15 @@ public class studentData {
 
 			}
 
-			String name = studentsArr[choice];
-			String hometown = hmtwnArr[choice];
-			String food = favArr[choice];
+			String name = studentsArr[choice - 1];
+			String hometown = hmtwnArr[choice - 1];
+			String food = favArr[choice - 1];
 
 			System.out.println("Student " + choice + " is " + name
-					+ " What would you like to know about them? (enter “hometown” or “favorite_food”)");
+					+ " What would you like to know about them? (enter 'hometown' or 'favorite_food')");
 
 			String input = scan.next();
-			
+
 			if (input.equalsIgnoreCase("hometown")) {
 				System.out.println(name + "'s hometown is " + hometown + " would you like to learn more? (yes/no)");
 				String yn = scan.next();
@@ -60,10 +60,10 @@ public class studentData {
 			}
 			System.out.println("would you like to learn about another student? (yes/no)");
 			yesorno = scan.next();
-			
+
 		} while (yesorno.equalsIgnoreCase(cont));
 		System.out.println("Thanks! Have a great day!");
-
+		scan.close();
 	}
 
 }
